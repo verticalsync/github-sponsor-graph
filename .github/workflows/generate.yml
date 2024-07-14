@@ -1,0 +1,39 @@
+name: Generate sponsors graph
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */1 * * *"
+
+jobs:
+  generate:
+    name: Generate sponsors graph
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@master
+
+      - uses: pnpm/action-setup@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Generate sponsors graph
+        run: |
+              rm -f graph.png
+              node generate-graph.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - name: Push Changes
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "Updated sponsors graph" || exit 0
+          git push

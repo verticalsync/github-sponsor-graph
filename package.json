@@ -9,14 +9,11 @@
         "commander": "^11.1.0"
     },
     "devDependencies": {},
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [],
     "author": "Vendicated <vendicated+npm@riseup.net>",
     "license": "GPL-3.0-or-later",
     "repository": {
         "type": "git",
-        "url": "https://github.com/Vendicated/github-sponsor-graph.git"
-    }
+        "url": "https://github.com/verticalsync/github-sponsor-graph.git"
+    },
+    "packageManager": "pnpm@9.5.0"
 }

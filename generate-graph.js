@@ -48,7 +48,7 @@ const IMAGES_PER_ROW = Number(imagesPerRow);
 
 const HEADERS = {
     Authorization: `Bearer ${GITHUB_TOKEN}`,
-    "User-Agent": "github-sponsor-graph (https://github.com/Vendicated/github-sponsor-graph)",
+    "User-Agent": "github-sponsor-graph (https://github.com/verticalsync/github-sponsor-graph)",
 };
 
 async function fetchDonorPfps(username, after = null) {
